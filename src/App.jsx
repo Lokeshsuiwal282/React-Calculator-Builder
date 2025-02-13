@@ -39,31 +39,31 @@ function App() {
     // Scientific Functions (log, sin, cos, tan)
     else if (buttonData === "log") {
       setCalculatorValue(Math.log(value).toFixed(5));
-    } 
+    }
     else if (buttonData === "sin") {
       setCalculatorValue(Math.sin(value).toFixed(5));
-    } 
+    }
     else if (buttonData === "cos") {
       setCalculatorValue(Math.cos(value).toFixed(5));
-    } 
+    }
     else if (buttonData === "tan") {
       setCalculatorValue(Math.tan(value).toFixed(5));
-    } 
-    
+    }
+
     // Square Root (√) Calculation
     else if (buttonData === "√") {
       setCalculatorValue(Math.sqrt(value).toFixed(5));
-    } 
+    }
 
     // Factorial (!) Calculation
     else if (buttonData === "!") {
       setCalculatorValue(factorial(value).toString());
-    } 
+    }
 
     // Pi (π) Value (3.14159)
     else if (buttonData === "π") {
       setCalculatorValue((Math.PI).toFixed(5));
-    } 
+    }
 
     // Degrees to Radians Conversion (deg)
     else if (buttonData === "deg") {
@@ -73,7 +73,7 @@ function App() {
     else if (buttonData === "Undo") {
       if (undoStack.length > 0) {
         const lastValue = undoStack.pop();
-        setRedoStack([...redoStack, calculatorValue]); 
+        setRedoStack([...redoStack, calculatorValue]);
         setCalculatorValue(lastValue);
       }
     }
@@ -81,14 +81,14 @@ function App() {
     else if (buttonData === "Redo") {
       if (redoStack.length > 0) {
         const nextValue = redoStack.pop();
-        setUndoStack([...undoStack, calculatorValue]); 
+        setUndoStack([...undoStack, calculatorValue]);
         setCalculatorValue(nextValue);
       }
     } else {
       setCalculatorValue((prev) => (prev === "0" ? buttonData : prev + buttonData));
     }
   };
-//  let x = console.log(onButtonClick);
+  //  let x = console.log(onButtonClick);
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-all drak_light_bg">
@@ -108,7 +108,13 @@ function App() {
               <DraggableButton key={`${btn}-${index}`} value={btn} />
             ))}
           </div>
+          <div className="w-full h-1 drak_light">----------------------------------------------------------------------------</div>
 
+          <div className="grid grid-cols-4 gap-2 mt-5">
+            {components.map((button, index) => (
+              <DraggableButton key={`${button.value}-${index}`} id={button.id} value={button.value} onClick={onButtonClick} />
+            ))}
+          </div>
           {/*this is Undo, Redo, and History Buttons */}
           <div className="flex justify-between mt-4">
             <button onClick={() => onButtonClick("Undo")} className="p-2 bg-yellow-500 text-white rounded-md shadow-md cursor-pointer hover:bg-yellow-600 transition-all drak_light_button">
@@ -121,12 +127,6 @@ function App() {
               Show History
             </button> */}
           </div>
-          <div className="grid grid-cols-4 gap-2 mt-5">
-            {components.map((button, index) => (
-              <DraggableButton key={`${button.value}-${index}`} id={button.id} value={button.value} onClick={onButtonClick} />
-            ))}
-          </div>
-
           {/* this is History Display */}
           {history.length > 0 && (
             <div className="mt-4 bg-gray-300 dark:bg-gray-700 p-3 rounded-md drak_light_bg">
