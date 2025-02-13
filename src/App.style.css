@@ -1,4 +1,50 @@
 @import "tailwindcss";
-/* /* @import 'tailwindcss/base'; */
-/* @import 'tailwindcss/components'; */
-/* @import 'tailwindcss/utilities';  */
+
+
+html, body {
+   transition: background-color 0.3s, color 0.3s;
+ }
+
+ :root {
+   --dark-bg: #0a0a0a;
+   --dark-surface: #1c1b1b;
+   --dark-text: #ffffff;
+   --light-bg: #ffffff;
+   --light-surface: #f5f5f5;
+   --light-text: #121212;
+   --light-accent: #2962ff;
+   --bg: var(--dark-bg);
+   --surface: var(--dark-surface);
+   --text: var(--dark-text);
+   --accent: var(--dark-accent);
+}
+
+body {
+   background-color: var(--bg);
+   color: var(--text);
+   font-family: 'Inter', sans-serif;
+   margin: 0;
+}
+body.light-theme {
+   --bg: var(--light-bg);
+   --surface: var(--light-surface);
+   --text: var(--light-text);
+   --accent: var(--light-accent);
+}
+
+.drak_light {
+   background-color: var(--surface);
+   color: var(--text);
+}
+.drak_light_bg {
+   background-color: var(--bg);
+}
+
+.drak_light_button {
+   background-color: var(--bg);
+   color: var(--text);
+}
+.drak_light_button:hover {
+   background-color: var(--light-bg);
+   color: var(--light-accent);
+}

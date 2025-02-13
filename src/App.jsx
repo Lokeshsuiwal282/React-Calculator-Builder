@@ -88,16 +88,16 @@ function App() {
       setCalculatorValue((prev) => (prev === "0" ? buttonData : prev + buttonData));
     }
   };
-
+//  let x = console.log(onButtonClick);
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-all">
+      <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white transition-all drak_light_bg">
 
         {/* this are show Header Box */}
         <Header></Header>
         {/* Calculator Box */}
-        <div className="mt-25 w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5">
-          <div className="mb-4 p-3 text-right bg-gray-200 dark:bg-gray-700 text-2xl font-mono rounded-md">
+        <div className="mt-21 w-full max-w-md bg-white dark:bg-gray-800 shadow-lg rounded-lg p-5 drak_light">
+          <div className="mb-4 p-3 text-right bg-gray-200 dark:bg-gray-700 text-2xl font-mono rounded-md drak_light_bg">
             {calculatorValue}
           </div>
 
@@ -108,15 +108,16 @@ function App() {
               <DraggableButton key={`${btn}-${index}`} value={btn} />
             ))}
           </div>
+
           {/*this is Undo, Redo, and History Buttons */}
           <div className="flex justify-between mt-4">
-            <button onClick={() => onButtonClick("Undo")} className="p-2 bg-yellow-500 text-white rounded-md shadow-md cursor-pointer hover:bg-yellow-600 transition-all">
+            <button onClick={() => onButtonClick("Undo")} className="p-2 bg-yellow-500 text-white rounded-md shadow-md cursor-pointer hover:bg-yellow-600 transition-all drak_light_button">
               Undo
             </button>
-            <button onClick={() => onButtonClick("Redo")} className="p-2 bg-green-500 text-white rounded-md shadow-md cursor-pointer hover:bg-green-600 transition-all">
+            <button onClick={() => onButtonClick("Redo")} className="p-2 bg-green-500 text-white rounded-md shadow-md cursor-pointer hover:bg-green-600 transition-all drak_light_button">
               Redo
             </button>
-            {/* <button onClick={() => onButtonClick("History")} className="p-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition-all">
+            {/* <button onClick={() => onButtonClick("History")} className="p-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition-all drak_light">
               Show History
             </button> */}
           </div>
@@ -128,7 +129,7 @@ function App() {
 
           {/* this is History Display */}
           {history.length > 0 && (
-            <div className="mt-4 bg-gray-300 dark:bg-gray-700 p-3 rounded-md">
+            <div className="mt-4 bg-gray-300 dark:bg-gray-700 p-3 rounded-md drak_light_bg">
               <h3 className="text-lg font-bold mb-2">Calculation History:</h3>
               <ul className="list-disc list-inside">
                 {history.map((entry, index) => (

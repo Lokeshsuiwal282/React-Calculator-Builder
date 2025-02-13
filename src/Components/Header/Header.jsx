@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import logo_image from "../../assets/img/React_Calculator_Builder_logo_image_2.jpg";
-
+import '../../App.style.css';
 export const Header = () => {
-   const [isDarkTheme, setIsDarkTheme] = useState(false);
+   const [isLightTheme, setIsLightTheme] = useState(false);
 
    const toggleTheme = () => {
-      setIsDarkTheme(!isDarkTheme);
-      document.body.classList.toggle("dark");
+      setIsLightTheme((prevTheme) => !prevTheme);
+      document.body.classList.toggle("light-theme");
    };
 
    return (
-      <nav className="w-full bg-white dark:bg-gray-800 shadow-md p-2 flex justify-between items-center fixed top-0">
+      <nav className="w-full bg-white shadow-md p-2 flex justify-between items-center fixed top-0 drak_light">
          <div className="flex items-center">
-            <img src={logo_image} alt="Logo" className="h-15 rounded-md" />
+            <img src={logo_image} alt="Logo" className="h-12 w-70 rounded-md" />
          </div>
-         <button className="text-xl bg-gray-200 dark:bg-gray-700 p-3 rounded-md cursor-pointer hover:bg-gray-400 dark:hover:bg-gray-600 transition-all" onClick={toggleTheme}>
-            {isDarkTheme ? "🌞 Light" : "🌙 Dark"}
+         <button className="text-sm bg-gray-200 dark:bg-gray-700 p-3 rounded-md cursor-pointer transition-all drak_light_button" onClick={toggleTheme}>
+            {isLightTheme ? "🌞 Light" : "🌙 Dark"}
          </button>
       </nav>
    );
