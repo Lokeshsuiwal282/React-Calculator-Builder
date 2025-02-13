@@ -12,7 +12,7 @@ export const Header = () => {
    return (
       <nav className="w-full bg-white shadow-md p-2 flex justify-between items-center fixed top-0 drak_light">
          <div className="flex items-center">
-            <img src={logo_image} alt="Logo" className="h-12 w-70 rounded-md" />
+            <img src={logo_image} alt="Logo" className="h-12 w-65 rounded-md" />
          </div>
          <button className="text-sm bg-gray-200 dark:bg-gray-700 p-3 rounded-md cursor-pointer transition-all drak_light_button" onClick={toggleTheme}>
             {isLightTheme ? "🌞 Light" : "🌙 Dark"}
