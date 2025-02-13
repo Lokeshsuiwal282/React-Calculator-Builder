@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './App.Style.css';
+import './App.css';
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Header } from "./Components/Header/Header";

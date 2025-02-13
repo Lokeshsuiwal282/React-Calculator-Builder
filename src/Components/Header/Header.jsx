@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo_image from "../../assets/img/React_Calculator_Builder_logo_image_2.jpg";
-import '../../App.style.css';
+import '../../App.css';
 export const Header = () => {
    const [isLightTheme, setIsLightTheme] = useState(false);
 
